@@ -180,7 +180,7 @@ namespace ClassSnatcher1._3
             MailMessage mailMessage = new MailMessage();
             mailMessage.From = new MailAddress("spamemail111131@gmail.com");    //The from email parameter
             mailMessage.Subject = "The amount of seats available has changed in " + subject + " " + crn;    //Declares the subject of the email
-            mailMessage.Body = "There are " + genseats + " available. The waitlist has " + waitseats " available";  //subject of the email.
+            mailMessage.Body = "There are " + genseats + " available. The waitlist has " + waitseats + " available";  //subject of the email.
         
 
             //May want to add a parameter to make the email a changeable entry
