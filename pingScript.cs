@@ -96,7 +96,7 @@ namespace ClassSnatcher1._3
 
             int genspaces = 994;    //Total amount of seats left
             int waitspaces = 993;   //Total amount of waitlisted seats available
-            int counter = 0; // bells counter
+            int counter = 0; // bells counter !!!
 
             /*
                 @Pre:
