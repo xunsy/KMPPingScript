@@ -16,15 +16,15 @@ namespace ClassSnatcher1._3
             /*
                 These parameters are valid, but need to be modified in order to run on the web and take input from
                 a webform of sorts. For debugging purposes, many of the Console.IO lines should be changed to Debug
-                via a preprocessor format. 
+                via a preprocessor format.
 
-                
 
-                DESIGN CHOICE:  Should the current WriteLines be kept for offline personal computer use? 
+
+                DESIGN CHOICE:  Should the current WriteLines be kept for offline personal computer use?
                                 -Maybe they should be commented out online in the mean time
                                 -Possibly scrap them in order to save on file size?
                                 -Keep two separate version. In the meantime, lets comment them out.
-            
+
              */
 
             /*
@@ -34,13 +34,13 @@ namespace ClassSnatcher1._3
              */
             string subject, term, Crn; // HTTP GET Request parameters
 
-            
+
             //Console.WriteLine("What is your subject name abbreviated? Enter in all CAPS. Ex: PHYSICS = PHYS, MATHEMATICS = MATH.");
-            
+
             //THIS NEEDS TO BE ABLE TO READ FROM WEBPAGE QUERY
             subject = Console.ReadLine();
-            
-            /* 
+
+            /*
             Console.WriteLine("What is the term for the course? Concatenate the year + the Season Query Code.");
             Console.WriteLine("Season Query Codes:");
             Console.WriteLine("Spring = 03");
@@ -74,10 +74,10 @@ namespace ClassSnatcher1._3
             string notifications = Console.ReadLine();
 
             //Line commented out because this is a deprecated error, used for debugging for offline use
-            //int bells = Convert.ToInt32(notifications); 
+            //int bells = Convert.ToInt32(notifications);
 
 
-            int bells = 1;  //Max one notification per instance, per person
+            int bells = 1;  //Max one notification per instance, per person, per crn
 
 
 
@@ -85,7 +85,7 @@ namespace ClassSnatcher1._3
 
             //Pings VCCCD Website for amount of seats available
             //waitlisted seats, and then converts them to integers.
-            //NOTE: Can be done in two lines of code. 
+            //NOTE: Can be done in two lines of code.
             string general = Parse_Page_General(url);
             string waitlist = Parse_Page_Waitlist(url);
             int gen = Convert.ToInt32(general);
@@ -148,7 +148,7 @@ namespace ClassSnatcher1._3
                     waitspaces = wait;
                 }
 
-              
+
 
                 Console.WriteLine(genspaces + " seats still available in " + subject + " " + crn); // show  68
                 Console.WriteLine(waitspaces + " waitlist seats still available in " + subject + " " + crn);
@@ -165,13 +165,13 @@ namespace ClassSnatcher1._3
             Console.WriteLine(e.SignalTime);
         }
 
-        
+
         /*
             @Pre:   Takes in @param arugments (string, string, string, int)
-                    corresponding to seats available, waitlist available, course subject and course number 
+                    corresponding to seats available, waitlist available, course subject and course number
             @Func:  Processes an email and sends it to the user based off of passed parameters.
             @Post:  Returns nothing
-        
+
          */
         static void Send_Email(string genseats, string waitseats, string subject, int crn)
         {
@@ -181,7 +181,7 @@ namespace ClassSnatcher1._3
             mailMessage.From = new MailAddress("spamemail111131@gmail.com");    //The from email parameter
             mailMessage.Subject = "The amount of seats available has changed in " + subject + " " + crn;    //Declares the subject of the email
             mailMessage.Body = "There are " + genseats + " available. The waitlist has " + waitseats " available";  //subject of the email.
-        
+
 
             //May want to add a parameter to make the email a changeable entry
             mailMessage.To.Add(new MailAddress("sd.johnsmith@gmail.com")); //email to user
