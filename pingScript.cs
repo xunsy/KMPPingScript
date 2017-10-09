@@ -7,6 +7,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Timers;
 
+
+#define _DEBUG = 1
+
 namespace ClassSnatcher1._3
 {
     class Program
@@ -129,6 +132,19 @@ namespace ClassSnatcher1._3
                 *This saves the amount of emails/text sent per a pass-through and the amount of comparisons
                 *Saving computing resources is important
                  */
+                #if _DEBUG
+
+                 // email/txtmsg function
+                    Send_Email(genslots, waitslots, subject, crn); // add method parameter asking what email they want me to email them their notification. add this feature to final version when published online
+                    Console.WriteLine("EMAIL SENT!");
+                    genspaces = genseats;
+                    counter++;
+                    gen = genseats; // 68 = 68  // resets new norm to prevent email spam
+
+                    waitspaces = waitseats;
+                    wait = waitseats; // resets new norm to prevent email spam
+
+                #endif
                 if (genseats != gen || waitseats != wait) // 68 != 67
                 {
                     // email/txtmsg function
